@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{DFCCC467-9
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{E5F07B6F-99FD-4E9E-852F-1A7A7C741E72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILinear", "ILinear\ILinear.csproj", "{E58671D6-364C-4547-9F72-7A4212152A11}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sequence", "Sequence\Sequence.csproj", "{9BF43319-6B7A-4E07-9606-D6E3413D9C65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,6 +21,14 @@ Global
 		{E5F07B6F-99FD-4E9E-852F-1A7A7C741E72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5F07B6F-99FD-4E9E-852F-1A7A7C741E72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5F07B6F-99FD-4E9E-852F-1A7A7C741E72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E58671D6-364C-4547-9F72-7A4212152A11}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E58671D6-364C-4547-9F72-7A4212152A11}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E58671D6-364C-4547-9F72-7A4212152A11}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E58671D6-364C-4547-9F72-7A4212152A11}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BF43319-6B7A-4E07-9606-D6E3413D9C65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BF43319-6B7A-4E07-9606-D6E3413D9C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BF43319-6B7A-4E07-9606-D6E3413D9C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BF43319-6B7A-4E07-9606-D6E3413D9C65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
