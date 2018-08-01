@@ -75,5 +75,10 @@ namespace ILinear
         /// <returns></returns>
         int Locate(T value);
 
+        /// <summary>
+        /// 将顺序表倒置
+        /// </summary>
+        void Reverse();
+
     }
 }

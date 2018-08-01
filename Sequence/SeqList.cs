@@ -63,7 +63,7 @@ namespace Sequence
             set { maxsize = value; }
         }
 
-        
+
         /// <summary>
         /// 获取顺序表的长度
         /// </summary>
@@ -72,7 +72,7 @@ namespace Sequence
         {
             return last + 1;
         }
-        
+
         /// <summary>
         /// 判断顺序表是否为空
         /// </summary>
@@ -96,7 +96,7 @@ namespace Sequence
             else
                 return false;
         }
-        
+
         #region 增 
         /// <summary>
         /// 在顺序表的第i个数据元素的位置插入一个数据元素
@@ -171,6 +171,7 @@ namespace Sequence
             if (i == last + 1)
             {
                 tmp = data[last--];
+                return tmp;
             }
             else
             {
@@ -239,6 +240,93 @@ namespace Sequence
                 return -1;
             }
             return i;
+        }
+        #endregion
+
+        #region 操作 
+        /// <summary>
+        /// 倒置顺序表
+        /// </summary>
+        public void Reverse()
+        {
+            T tmp = default(T);
+            int len = GetLength();
+            for (int i = 0; i < len / 2; i++)
+            {
+                tmp = data[i];
+                data[i] = data[len - i];
+                data[len - i] = tmp;
+            }
+        }
+
+        /// <summary>
+        /// 合并两个表中的数据
+        /// <para>有数据类型为整型的顺序表 La 和 Lb，其数据元素均按从小到大的升序排列，编写一个算法将它们合并成一个表 Lc，要求 Lc 中数据元素也按升序排数据结构</para>
+        /// </summary>
+        /// <param name="la"></param>
+        /// <param name="lb"></param>
+        /// <returns></returns>
+        public static SeqList<int> Merge(SeqList<int> la, SeqList<int> lb)
+        {
+            SeqList<int> lc = new SeqList<int>(la.GetLength() + lb.GetLength());
+
+            int a = 0;
+            int b = 0;
+
+            while ((a < la.GetLength()) && (b < lb.GetLength()))
+            {
+                if (la[a] < lb[b])
+                {
+                    lc.Append(la[a++]);
+                }
+                else
+                {
+                    lc.Append(lb[b++]);
+                }
+            }
+
+            //a表中还有数据元素 
+            while (a < la.GetLength())
+            {
+                lc.Append(la[a++]);
+            }
+
+            //b表中还有数据元素
+            while (b < lb.GetLength())
+            {
+                lc.Append(lb[b++]);
+            }
+
+            return lc;
+        }
+
+        /// <summary>
+        /// 已知一个存储整数的顺序表 La，试构造顺序表 Lb，要求顺序表 Lb 中只包含顺序表 La 中所有值不相同的数据元素
+        /// </summary>
+        /// <param name="la"></param>
+        /// <returns></returns>
+        public static SeqList<int> Purge(SeqList<int> la)
+        {
+            SeqList<int> lb = new SeqList<int>(la.GetLength());
+            lb.Append(la[0]);
+            int a = 0;
+            int b = 0;
+
+            for (a = 0; a < la.GetLength(); a++)
+            {
+                for (b = 0; b < lb.GetLength(); b++)
+                {
+                    if (lb[b] == la[a])
+                    {
+                        break;
+                    }
+                }
+                if (b == lb.GetLength())
+                {
+                    lb.Append(la[a]);
+                }
+            }
+            return lb;
         }
         #endregion
     }
