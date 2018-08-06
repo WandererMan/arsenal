@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ILinear", "ILinear\ILinear.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sequence", "Sequence\Sequence.csproj", "{9BF43319-6B7A-4E07-9606-D6E3413D9C65}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "顺序表", "顺序表", "{16C67C08-EC84-4E07-8A1A-F0434A9281E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "链表", "链表", "{D16A00EF-DC93-4F2D-B093-36470B9AB81E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ListDemo", "ListDemo\ListDemo.csproj", "{1D341A18-A8F4-4747-BBB7-A3E0602D42B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,12 +35,18 @@ Global
 		{9BF43319-6B7A-4E07-9606-D6E3413D9C65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BF43319-6B7A-4E07-9606-D6E3413D9C65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BF43319-6B7A-4E07-9606-D6E3413D9C65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D341A18-A8F4-4747-BBB7-A3E0602D42B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D341A18-A8F4-4747-BBB7-A3E0602D42B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D341A18-A8F4-4747-BBB7-A3E0602D42B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D341A18-A8F4-4747-BBB7-A3E0602D42B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E5F07B6F-99FD-4E9E-852F-1A7A7C741E72} = {DFCCC467-9FCF-4034-B29F-65BCD07A6341}
+		{9BF43319-6B7A-4E07-9606-D6E3413D9C65} = {16C67C08-EC84-4E07-8A1A-F0434A9281E8}
+		{1D341A18-A8F4-4747-BBB7-A3E0602D42B2} = {D16A00EF-DC93-4F2D-B093-36470B9AB81E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E6855880-AE08-44F7-8739-55D218F3A1D9}
