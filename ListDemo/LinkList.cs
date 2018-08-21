@@ -187,7 +187,7 @@ namespace ListDemo
                 return default(T);
             }
 
-            Node<T> p = head; 
+            Node<T> p = head;
             int j = 1;
             while (p.Next != null && j < i)
             {
@@ -233,6 +233,59 @@ namespace ListDemo
         public void Reverse()
         {
             throw new NotImplementedException();
+        }
+
+        /// <summary>
+        /// 在单链表的头部添加新的节点建立单链表的算法
+        /// <para>-1是输入数据的结束标志，但输入的数为-1时表示结束</para>
+        /// </summary>
+        /// <returns></returns>
+        public LinkList<int> CreateListHead()
+        {
+            int d;
+            LinkList<int> L = new LinkList<int>();
+            d = Int32.Parse(Console.ReadLine());//读取用户输入的数字
+
+            while (d != -1)
+            {
+                Node<int> p = new Node<int>(d);//创建一个节点
+                p.Next = L.Head;//每次将新添加的节点下一个指针指向链表的头部
+                L.Head = p;//链表的新头部为添加的节点
+                d = Int32.Parse(Console.ReadLine());//再次输入新的参数
+            }
+            return L;
+        }
+
+        public LinkList<int> CreateListTail()
+        {
+            int d;
+
+            Node<int> R = new Node<int>();
+            LinkList<int> L = new LinkList<int>();
+
+            R = L.Head;
+            d = Int32.Parse(Console.ReadLine());//读取用户输入的数字
+
+            while (d != -1)
+            {
+                Node<int> p = new Node<int>(d);//创建一个节点
+
+                if (L.Head==null)
+                {
+                    L.Head = p;
+                }
+                else
+                {
+                    R.Next = p;
+                }
+                R = p;
+                d = Int32.Parse(Console.ReadLine());//再次输入新的参数
+            }
+            if (R!=null)
+            {
+                R.Next = null;
+            }
+            return L;
         }
     }
 }
