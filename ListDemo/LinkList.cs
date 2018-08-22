@@ -230,9 +230,21 @@ namespace ListDemo
             return i;
         }
 
-        public void Reverse()
+        /// <summary>
+        /// 将单链表倒置
+        /// </summary>
+        public void ReversLinkList(LinkList<int> H)
         {
-            throw new NotImplementedException();
+            Node<int> p = H.Head.Next;
+            Node<int> q = new Node<int>();
+            H.Head.Next = null;
+            while (p != null)
+            {
+                q = p;
+                p = p.Next;
+                q.Next = H.Head.Next;
+                H.Head.Next = q;
+            }
         }
 
         /// <summary>
@@ -256,11 +268,15 @@ namespace ListDemo
             return L;
         }
 
+        /// <summary>
+        /// 在尾部插入结点建立单链表
+        /// </summary>
+        /// <returns></returns>
         public LinkList<int> CreateListTail()
         {
             int d;
 
-            Node<int> R = new Node<int>();
+            Node<int> R = new Node<int>();//指向最后一个节点
             LinkList<int> L = new LinkList<int>();
 
             R = L.Head;
@@ -270,7 +286,7 @@ namespace ListDemo
             {
                 Node<int> p = new Node<int>(d);//创建一个节点
 
-                if (L.Head==null)
+                if (L.Head == null)
                 {
                     L.Head = p;
                 }
@@ -281,11 +297,59 @@ namespace ListDemo
                 R = p;
                 d = Int32.Parse(Console.ReadLine());//再次输入新的参数
             }
-            if (R!=null)
+            if (R != null)
             {
                 R.Next = null;
             }
             return L;
+        }
+
+        public LinkList<int> Merge(LinkList<int> Ha, LinkList<int> Hb)
+        {
+            LinkList<int> Hc = new LinkList<int>();
+            Node<int> aNext = Ha.Head;
+            Node<int> bNext = Hb.Head;
+            Node<int> numNode = new Node<int>();//数量节点
+
+            //Hc使用Ha的头结点
+            Hc = Ha;
+            Hc.Head = null;
+
+            while (aNext != null && bNext != null)
+            {
+                if (aNext.Data<bNext.Data)
+                {
+                    numNode = aNext;
+                    aNext = aNext.Next;
+                }
+                else
+                {
+                    numNode = bNext;
+                    bNext = bNext.Next;
+                }
+                numNode.Next = Hc.Head.Next;
+                Hc.Head.Next = numNode;
+                //Hc.Append(numNode.Data);
+            }
+
+            if (aNext==null)
+            {
+                aNext = bNext;
+            }
+
+            while (aNext!=null)
+            {
+                //Hc.Append(aNext.Data);
+                //aNext = aNext.Next;
+
+                //在尾部插入方法
+                numNode = aNext;
+                aNext = aNext.Next;
+                numNode.Next = Hc.Head.Next;
+                Hc.Head.Next = numNode;
+            }
+
+            return Hc;
         }
     }
 }
