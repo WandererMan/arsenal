@@ -313,7 +313,7 @@ namespace ListDemo
 
             //Hc使用Ha的头结点
             Hc = Ha;
-            Hc.Head = null;
+            Hc.Head.Next = null;
 
             while (aNext != null && bNext != null)
             {
@@ -350,6 +350,35 @@ namespace ListDemo
             }
 
             return Hc;
+        }
+
+        public LinkList<int> Purge(LinkList<int> Ha)
+        {
+            LinkList<int> Hb = new LinkList<int>();
+            Node<int> p = Ha.Head.Next;
+            Node<int> q = new Node<int>();
+            Node<int> s = new Node<int>();
+
+            s = p;//将s设置为Ha链表中你的第一个结点
+            p = p.Next;
+            s.Next = null;//将s结点的引用域设置为空
+            Hb.Head.Next = s;//Hb单链表的头结点的引用域指向Ha的第一个结点
+
+            while (p!=null)
+            {
+                s = p;
+                p = p.Next;
+                q = Hb.Head.Next;
+                while (q!=null&&q.Data!=s.Data)
+                {
+                    q = q.Next;
+                }
+                if (q==null)
+                {
+                    s.Next = Hb.Head.Next;
+                    Hb.Head.Next = s;
+                }
+            }
         }
     }
 }
