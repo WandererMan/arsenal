@@ -241,6 +241,53 @@ namespace Sequence
             }
             return i;
         }
+
+        /// <summary>
+        /// 获取最大值
+        /// </summary>
+        /// <param name="l"></param>
+        /// <returns></returns>
+        public int GetMaxValue(SeqList<int> l)
+        {
+            int num = l[0];
+            for (int j = 1; j < l.maxsize - 1; j++)
+            {
+                if (num < l[j])
+                {
+                    num = l[j];
+                }
+            }
+
+            return num;
+        }
+        /// <summary>
+        /// 获取最小值
+        /// </summary>
+        /// <param name="l"></param>
+        /// <returns></returns>
+        public int GetMinValue(SeqList<int> l)
+        {
+            int num = l[0];
+            for (int j = 1; j < l.maxsize - 1; j++)
+            {
+                if (num > l[j])
+                {
+                    num = l[j];
+                }
+            }
+
+            return num;
+        }
+        /// <summary>
+        /// 打印全部数据
+        /// </summary>
+        public void PrintAllItem()
+        {
+            for (int i = 0; i < maxsize; i++)
+            {
+                Console.WriteLine(this.data[i]);
+            }
+        }
         #endregion
 
         #region 操作 

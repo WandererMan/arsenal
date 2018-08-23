@@ -323,7 +323,7 @@ namespace ListDemo
 
             while (aNext != null && bNext != null)
             {
-                if (aNext.Data<bNext.Data)
+                if (aNext.Data < bNext.Data)
                 {
                     numNode = aNext;
                     aNext = aNext.Next;
@@ -338,12 +338,12 @@ namespace ListDemo
                 //Hc.Append(numNode.Data);
             }
 
-            if (aNext==null)
+            if (aNext == null)
             {
                 aNext = bNext;
             }
 
-            while (aNext!=null)
+            while (aNext != null)
             {
                 //Hc.Append(aNext.Data);
                 //aNext = aNext.Next;
@@ -375,16 +375,16 @@ namespace ListDemo
             s.Next = null;//将s结点的引用域设置为空
             Hb.Head.Next = s;//Hb单链表的头结点的引用域指向Ha的第一个结点
 
-            while (p!=null)
+            while (p != null)
             {
                 s = p;
                 p = p.Next;
                 q = Hb.Head.Next;
-                while (q!=null&&q.Data!=s.Data)
+                while (q != null && q.Data != s.Data)
                 {
                     q = q.Next;
                 }
-                if (q==null)
+                if (q == null)
                 {
                     s.Next = Hb.Head.Next;
                     Hb.Head.Next = s;
@@ -396,20 +396,33 @@ namespace ListDemo
         /// <summary>
         /// 顺序表（单链表）中的元素值递增有序。写一算法，将元素 x 插入到表中适当的位置，并保持顺序表（单链表）的有序性
         /// </summary>
-        public void 插入元素X到单链表中的合适位置(LinkList<int> l,int x)
+        public void 插入元素X到单链表中的合适位置(LinkList<int> l, int x)
         {
-            Node<int> p = l.Head; 
+            Node<int> p = l.Head;
 
             int index = 1;
-            while (p!=null)
+            while (p != null)
             {
                 //如果当前结点值大于X则插入到当前节点前方
-                if (p.Data>x)
+                if (p.Data > x)
                 {
                     l.Insert(x, index);
                     break;
                 }
                 index++;
+                p = p.Next;
+            }
+        }
+
+        /// <summary>
+        /// 打印全部数据
+        /// </summary>
+        public void PrintAllItem()
+        {
+            var p = this.Head;
+            while (p != null)
+            {
+                Console.WriteLine(p.Data);
                 p = p.Next;
             }
         }
