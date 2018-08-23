@@ -233,7 +233,7 @@ namespace ListDemo
         /// <summary>
         /// 将单链表倒置
         /// </summary>
-        public void ReversLinkList(LinkList<int> H)
+        public static void ReversLinkList(LinkList<int> H)
         {
             Node<int> p = H.Head.Next;
             Node<int> q = new Node<int>();
@@ -252,7 +252,7 @@ namespace ListDemo
         /// <para>-1是输入数据的结束标志，但输入的数为-1时表示结束</para>
         /// </summary>
         /// <returns></returns>
-        public LinkList<int> CreateListHead()
+        public static LinkList<int> CreateListHead()
         {
             int d;
             LinkList<int> L = new LinkList<int>();
@@ -272,7 +272,7 @@ namespace ListDemo
         /// 在尾部插入结点建立单链表
         /// </summary>
         /// <returns></returns>
-        public LinkList<int> CreateListTail()
+        public static LinkList<int> CreateListTail()
         {
             int d;
 
@@ -294,7 +294,7 @@ namespace ListDemo
                 {
                     R.Next = p;
                 }
-                R = p;
+                R = p;//当前p的引用会在下次循环中使用上
                 d = Int32.Parse(Console.ReadLine());//再次输入新的参数
             }
             if (R != null)
@@ -304,7 +304,13 @@ namespace ListDemo
             return L;
         }
 
-        public LinkList<int> Merge(LinkList<int> Ha, LinkList<int> Hb)
+        /// <summary>
+        /// 将两个顺序排列好的单链表进行顺序合并到一个单链表中0
+        /// </summary>
+        /// <param name="Ha"></param>
+        /// <param name="Hb"></param>
+        /// <returns></returns>
+        public static LinkList<int> Merge(LinkList<int> Ha, LinkList<int> Hb)
         {
             LinkList<int> Hc = new LinkList<int>();
             Node<int> aNext = Ha.Head;
@@ -352,6 +358,11 @@ namespace ListDemo
             return Hc;
         }
 
+        /// <summary>
+        /// 去掉Ha中的重复数据
+        /// </summary>
+        /// <param name="Ha"></param>
+        /// <returns></returns>
         public LinkList<int> Purge(LinkList<int> Ha)
         {
             LinkList<int> Hb = new LinkList<int>();
@@ -378,6 +389,28 @@ namespace ListDemo
                     s.Next = Hb.Head.Next;
                     Hb.Head.Next = s;
                 }
+            }
+            return Hb;
+        }
+
+        /// <summary>
+        /// 顺序表（单链表）中的元素值递增有序。写一算法，将元素 x 插入到表中适当的位置，并保持顺序表（单链表）的有序性
+        /// </summary>
+        public void 插入元素X到单链表中的合适位置(LinkList<int> l,int x)
+        {
+            Node<int> p = l.Head; 
+
+            int index = 1;
+            while (p!=null)
+            {
+                //如果当前结点值大于X则插入到当前节点前方
+                if (p.Data>x)
+                {
+                    l.Insert(x, index);
+                    break;
+                }
+                index++;
+                p = p.Next;
             }
         }
     }

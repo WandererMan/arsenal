@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using ListDemo;
 using Sequence;
 
 namespace TestProject
@@ -12,41 +13,20 @@ namespace TestProject
     {
         static void Main(string[] args)
         {
-            SeqList<int> la = new SeqList<int>(5);
-            SeqList<int> lb = new SeqList<int>(5);
+            LinkList<int> linkList = new LinkList<int>();
 
-            la.Append(5);
-            la.Append(8);
-            la.Append(5);
-            la.Append(8);
-            la.Append(18);
+            var l = LinkList<int>.CreateListTail();
+            l.插入元素X到单链表中的合适位置(l, 2);
 
-
-            //lb.Append(1);
-            //lb.Append(3);
-            //lb.Append(4);
-            //lb.Append(7);
-            //lb.Append(9);
-
-            SeqList<int> lc = SeqList<int>.Purge(la);
-
-            //int i = 0;
-            //int j = 0;
-            //for ( i = 0; i < 5; i++)
-            //{
-            //    Test();
-            //} 
-
-            //Console.WriteLine(j);
+            var p = l.Head;
+            while (p!=null)
+            {
+                Console.WriteLine(p.Data);
+                p = p.Next;
+            }
 
             Console.ReadLine();
         }
 
-        static int last = 0;
-        public static void Test()
-        {
-            ++last;
-            //last++;
-        }
     }
 }

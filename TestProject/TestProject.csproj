@@ -49,6 +49,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ListDemo\ListDemo.csproj">
+      <Project>{1D341A18-A8F4-4747-BBB7-A3E0602D42B2}</Project>
+      <Name>ListDemo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Sequence\Sequence.csproj">
       <Project>{9bf43319-6b7a-4e07-9606-d6e3413d9c65}</Project>
       <Name>Sequence</Name>
