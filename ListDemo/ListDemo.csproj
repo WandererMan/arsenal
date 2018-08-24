@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DBLinkList.cs" />
     <Compile Include="DbNode.cs" />
     <Compile Include="LinkList.cs" />
     <Compile Include="Node.cs" />

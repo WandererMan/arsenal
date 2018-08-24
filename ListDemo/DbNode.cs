@@ -31,10 +31,11 @@ namespace ListDemo
         /// </summary>
         /// <param name="val">数据域</param>
         /// <param name="p">后继引用域</param>
-        public DbNode(T val, DbNode<T> p)
+        public DbNode(T val, DbNode<T> pre, DbNode<T> next)
         {
             data = val;
-            next = p;
+            next = next;
+            prev = pre;
         }
 
         /// <summary>
@@ -54,12 +55,14 @@ namespace ListDemo
         {
             data = val;
             next = null;
+            prev = null;
         }
 
         public DbNode()
         {
             data = default(T);
             next = null;
+            prev = null;
         }
 
         /// <summary>
