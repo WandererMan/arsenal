@@ -36,8 +36,8 @@ namespace ListDemo
         {
             this.data = val;
             this.next = nex;
-           this.prev = pre;
-        } 
+            this.prev = pre;
+        }
 
         /// <summary>
         /// 数据域属性

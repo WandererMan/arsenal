@@ -233,7 +233,7 @@ namespace ListDemo
         /// <summary>
         /// 将单链表倒置
         /// </summary>
-        public static void ReversLinkList(LinkList<int> H)
+        public void ReversLinkList(LinkList<int> H)
         {
             Node<int> p = H.Head.Next;
             Node<int> q = new Node<int>();
