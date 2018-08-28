@@ -30,40 +30,14 @@ namespace ListDemo
         /// 
         /// </summary>
         /// <param name="val">数据域</param>
-        /// <param name="p">后继引用域</param>
-        public DbNode(T val, DbNode<T> pre, DbNode<T> next)
+        /// <param name="next">后继引用域</param>
+        /// <param name="pre">前驱引用域</param>
+        public DbNode(T val, DbNode<T> pre, DbNode<T> nex)
         {
-            data = val;
-            next = next;
-            prev = pre;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="p">后继引用域</param>
-        public DbNode(DbNode<T> p)
-        {
-            next = p;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="val">数据域</param>
-        public DbNode(T val)
-        {
-            data = val;
-            next = null;
-            prev = null;
-        }
-
-        public DbNode()
-        {
-            data = default(T);
-            next = null;
-            prev = null;
-        }
+            this.data = val;
+            this.next = nex;
+           this.prev = pre;
+        } 
 
         /// <summary>
         /// 数据域属性
