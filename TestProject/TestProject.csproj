@@ -57,6 +57,10 @@
       <Project>{9bf43319-6b7a-4e07-9606-d6e3413d9c65}</Project>
       <Name>Sequence</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StackDemo\StackDemo.csproj">
+      <Project>{A7E47FCD-205A-4F22-B377-48F617CD86B0}</Project>
+      <Name>StackDemo</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
