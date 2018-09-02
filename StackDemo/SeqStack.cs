@@ -123,7 +123,7 @@ namespace StackDemo
             {
                 Console.WriteLine("当前栈为空");
                 return default(T);
-            } 
+            }
             return data[top--];
         }
         /// <summary>
@@ -141,5 +141,99 @@ namespace StackDemo
         }
 
         public bool IsFull() => (top == maxsize - 1);
-    }
+
+
+        /// <summary>
+        /// 括号匹配
+        /// </summary>
+        /// <param name="charlist"></param>
+        /// <returns></returns>
+        public bool MatchBracket(char[] charlist)
+        {
+            SeqStack<char> s = new SeqStack<char>(50);
+            int len = charlist.Length;
+            for (int i = 0; i < len; ++i)
+            {
+                if (s.IsEmpty())
+                {
+                    s.Push(charlist[i]);
+                }
+                else if ((((s.GetTop() == '(') && (charlist[i] == ')'))) || (s.GetTop() == '[' && charlist[i] == ']'))
+                {
+                    s.Pop();
+                }
+                else
+                {
+                    s.Push(charlist[i]);
+                }
+            }
+            if (s.IsEmpty())
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public double Operate(double a, string typeid, double b)
+        {
+            switch (typeid)
+            {
+                case "+":
+                    return a + b;
+                case "-":
+                    return a - b;
+                case "*":
+                    return a * b;
+                case "/":
+                    return a / b;
+                default:
+                    return 999999999999;
+            }
+        }
+
+        public int EvaluateExpression()
+        {
+            SeqStack<char> optr = new SeqStack<char>(20);
+            SeqStack<int> opnd = new SeqStack<int>(20);
+            optr.Push('#');
+            char c = Convert.ToChar(Console.Read());
+            int theta = 0;
+            int a = 0;
+            int b = 0;
+            while (c != '#')
+            {
+                if ((c != '+') && (c != '-')
+&& (c != '*') && (c != '/')
+&& (c != '(') && (c != ')'))
+                {
+                    optr.Push(c);
+                }
+                else
+                {
+                    switch (Precede(optr.GetTop(), c))
+                    {
+         Case '<':
+         optr.Push(c);
+                    c = Convert.ToChar(Console.Read());
+                    break;
+         case '=':
+         optr.Pop();
+                    c = Convert.ToChar(Console.Read());
+                    break;
+         case '>':
+         theta = optr.Pop();
+                    a = opnd.Pop();
+                    b = opnd.Pop();
+                    opnd.Push(Operate(a, theta, b));
+                    break;
+                }
+            }
+        }
+        return opnd.GetTop();
+        }
+
+
+}
 }

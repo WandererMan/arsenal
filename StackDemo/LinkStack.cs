@@ -124,38 +124,5 @@ namespace StackDemo
             Num++;
         }
 
-        /// <summary>
-        /// 括号匹配
-        /// </summary>
-        /// <param name="charlist"></param>
-        /// <returns></returns>
-        public bool MatchBracket(char[] charlist)
-        {
-            SeqStack<char> s = new SeqStack<char>(50);
-            int len = charlist.Length;
-            for (int i = 0; i < len; ++i)
-            {
-                if (s.IsEmpty())
-                {
-                    s.Push(charlist[i]);
-                }
-                else if ((((s.GetTop() == '(') && (charlist[i] == ')'))) || (s.GetTop() == '[' && charlist[i] == ']'))
-                {
-                    s.Pop();
-                }
-                else
-                {
-                    s.Push(charlist[i]);
-                }
-            }
-            if (s.IsEmpty())
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
     }
 }
