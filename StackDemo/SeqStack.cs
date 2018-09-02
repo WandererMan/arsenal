@@ -176,64 +176,124 @@ namespace StackDemo
                 return false;
             }
         }
-        public double Operate(double a, string typeid, double b)
+        public double Operate(double a, char typeid, double b)
         {
             switch (typeid)
             {
-                case "+":
+                case '+':
                     return a + b;
-                case "-":
+                case '-':
                     return a - b;
-                case "*":
+                case '*':
                     return a * b;
-                case "/":
+                case '/':
                     return a / b;
                 default:
                     return 999999999999;
             }
         }
 
-        public int EvaluateExpression()
+        public char Precede(char stackTop, char c)
         {
-            SeqStack<char> optr = new SeqStack<char>(20);
-            SeqStack<int> opnd = new SeqStack<int>(20);
-            optr.Push('#');
-            char c = Convert.ToChar(Console.Read());
-            int theta = 0;
-            int a = 0;
-            int b = 0;
-            while (c != '#')
-            {
-                if ((c != '+') && (c != '-')
-&& (c != '*') && (c != '/')
-&& (c != '(') && (c != ')'))
-                {
-                    optr.Push(c);
-                }
-                else
-                {
-                    switch (Precede(optr.GetTop(), c))
-                    {
-         Case '<':
-         optr.Push(c);
-                    c = Convert.ToChar(Console.Read());
-                    break;
-         case '=':
-         optr.Pop();
-                    c = Convert.ToChar(Console.Read());
-                    break;
-         case '>':
-         theta = optr.Pop();
-                    a = opnd.Pop();
-                    b = opnd.Pop();
-                    opnd.Push(Operate(a, theta, b));
-                    break;
-                }
-            }
-        }
-        return opnd.GetTop();
+            if ((stackTop == '+' && c == '+')
+                || (stackTop == '+' && c == '-')
+                || (stackTop == '+' && c == ')')
+                || (stackTop == '+' && c == '#')
+                || (stackTop == '-' && c == '+')
+                || (stackTop == '-' && c == '-')
+                || (stackTop == '-' && c == ')')
+                || (stackTop == '-' && c == '#')
+                || (stackTop == '*' && c == '+')
+                || (stackTop == '*' && c == '-')
+                || (stackTop == '*' && c == '*')
+                || (stackTop == '*' && c == '/')
+                || (stackTop == '*' && c == ')')
+                || (stackTop == '*' && c == '#')
+                || (stackTop == '/' && c == '+')
+                || (stackTop == '/' && c == '-')
+                || (stackTop == '/' && c == '*')
+                || (stackTop == '/' && c == '/')
+                || (stackTop == '/' && c == ')')
+                || (stackTop == '/' && c == '#')
+                || (stackTop == ')' && c == '+')
+                || (stackTop == ')' && c == '-')
+                || (stackTop == ')' && c == '*')
+                || (stackTop == ')' && c == '/')
+                || (stackTop == ')' && c == ')')
+                || (stackTop == ')' && c == '#')
+                )
+                return '>';
+
+            if ((stackTop == '+' && c == '*')
+                || (stackTop == '+' && c == '/')
+                || (stackTop == '+' && c == '(')
+                || (stackTop == '-' && c == '*')
+                || (stackTop == '-' && c == '/')
+                || (stackTop == '-' && c == '(')
+                || (stackTop == '*' && c == '(')
+                || (stackTop == '/' && c == '(')
+                || (stackTop == '(' && c == '+')
+                || (stackTop == '(' && c == '-')
+                || (stackTop == '(' && c == '*')
+                || (stackTop == '(' && c == '/')
+                || (stackTop == '(' && c == '(')
+                || (stackTop == '#' && c == '+')
+                || (stackTop == '#' && c == '-')
+                || (stackTop == '#' && c == '*')
+                || (stackTop == '#' && c == '/')
+                || (stackTop == '#' && c == '(')
+                )
+                return '<';
+
+            if ((stackTop == '(' && c == ')')
+                || (stackTop == '#' && c == '#'))
+                return '=';
+            else
+                return 'p';
         }
 
+        //public double EvaluateExpression()
+        //{
+        //    SeqStack<char> optr = new SeqStack<char>(20);
+        //    SeqStack<double> opnd = new SeqStack<double>(20);
+        //    optr.Push('#');
+        //    char c = Convert.ToChar(Console.Read());
+        //    char theta = 'p';
+        //    double a = 0;
+        //    double b = 0;
+        //    while (c != '#')
+        //    {
+        //        if ((c != '+') && (c != '-')
+        //            && (c != '*') && (c != '/')
+        //            && (c != '(') && (c != ')'))
+        //        {
+        //            optr.Push(c);
+        //        }
+        //        else
+        //        {
+        //            switch (Precede(optr.GetTop(), c))
+        //            {
+        //                case '<':
+        //                    optr.Push(c);
+        //                    c = Convert.ToChar(Console.Read());
+        //                    break;
+        //                case '=':
+        //                    optr.Pop();
+        //                    c = Convert.ToChar(Console.Read());
+        //                    break;
+        //                case '>':
+        //                    theta = optr.Pop();
+        //                    a = opnd.Pop();
+        //                    b = opnd.Pop();
+        //                    opnd.Push(Operate(a, theta, b));
+        //                    break;
+        //                default:throw new Exception();
+        //            }
+        //        }
+        //    }
+        //    return opnd.GetTop();
+        //}
 
-}
+
+    }
 }

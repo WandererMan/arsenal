@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using ListDemo;
 using QueueDemo;
 using Sequence;
+using StackDemo;
 
 namespace TestProject
 {
@@ -34,32 +35,35 @@ namespace TestProject
             //var l= LinkList<int>.CreateListHead();
             // l.ReversLinkList(l);
             // l.PrintAllItem();
-            LinkQueue<int> q = new LinkQueue<int>();
-            q.In(1);
-            q.ShowAllQueue();
-            q.In(2);
-            q.ShowAllQueue();
-            q.In(3);
-            q.ShowAllQueue();
-            q.In(4);
-            q.ShowAllQueue();
-            q.In(5);
-            q.ShowAllQueue();
-             
-            q.Out();
-            q.ShowAllQueue();
-            q.In(8);
-            q.ShowAllQueue();
-            q.Out();
-            q.ShowAllQueue();
-            q.Out();
-            q.ShowAllQueue();
+            //LinkQueue<int> q = new LinkQueue<int>();
+            //q.In(1);
+            //q.ShowAllQueue();
+            //q.In(2);
+            //q.ShowAllQueue();
+            //q.In(3);
+            //q.ShowAllQueue();
+            //q.In(4);
+            //q.ShowAllQueue();
+            //q.In(5);
+            //q.ShowAllQueue();
 
-            q.ShowAllQueue();
-            q.In(9);
-            q.ShowAllQueue();
-            q.In(10);
-            q.ShowAllQueue();
+            //q.Out();
+            //q.ShowAllQueue();
+            //q.In(8);
+            //q.ShowAllQueue();
+            //q.Out();
+            //q.ShowAllQueue();
+            //q.Out();
+            //q.ShowAllQueue();
+
+            //q.ShowAllQueue();
+            //q.In(9);
+            //q.ShowAllQueue();
+            //q.In(10);
+            //q.ShowAllQueue();
+            var ss = Console.Read();
+            SeqStack<double> test = new SeqStack<double>(5);
+            test.EvaluateExpression();
             Console.ReadLine();
         }
 
