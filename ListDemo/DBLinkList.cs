@@ -172,8 +172,8 @@ namespace ListDemo
         /// 将双链表倒置
         /// </summary>
         public void ReversLinkList(DBLinkList<int> H)
-        {
-
+        { 
+            //此方法将双联表的顺序冲最后一位遍历开始，重新赋值到新的双链表中
             //    DBLinkList<T> newLinkList = new DBLinkList<T>();
             //    for (int i = _size-1; i >= 0; i--)
             //    { 

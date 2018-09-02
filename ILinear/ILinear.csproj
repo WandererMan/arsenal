@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IListDS.cs" />
+    <Compile Include="IQueue.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TStack.cs" />
   </ItemGroup>
