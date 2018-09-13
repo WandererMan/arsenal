@@ -4,16 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E5F07B6F-99FD-4E9E-852F-1A7A7C741E72}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TestProject</RootNamespace>
-    <AssemblyName>TestProject</AssemblyName>
+    <ProjectGuid>{04F230BD-0BE1-4933-8E8D-B697087206D0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TreeDemo</RootNamespace>
+    <AssemblyName>TreeDemo</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -42,33 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="CLTree.cs" />
+    <Compile Include="CSTree.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HuffmanTreeDemo\HuffmanTreeDemo.csproj">
-      <Project>{CDBF7D93-08AC-4096-91EF-B2A1E4CDBD75}</Project>
-      <Name>HuffmanTreeDemo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ListDemo\ListDemo.csproj">
-      <Project>{1D341A18-A8F4-4747-BBB7-A3E0602D42B2}</Project>
-      <Name>ListDemo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\QueueDemo\QueueDemo.csproj">
-      <Project>{A400265F-68D7-4D7E-A1B1-316EB5B687A8}</Project>
-      <Name>QueueDemo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Sequence\Sequence.csproj">
-      <Project>{9bf43319-6b7a-4e07-9606-d6e3413d9c65}</Project>
-      <Name>Sequence</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StackDemo\StackDemo.csproj">
-      <Project>{A7E47FCD-205A-4F22-B377-48F617CD86B0}</Project>
-      <Name>StackDemo</Name>
-    </ProjectReference>
+    <Compile Include="PTree.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

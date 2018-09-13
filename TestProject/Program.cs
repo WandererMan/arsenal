@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using HuffmanTreeDemo;
 using ListDemo;
 using QueueDemo;
 using Sequence;
@@ -61,9 +62,11 @@ namespace TestProject
             //q.ShowAllQueue();
             //q.In(10);
             //q.ShowAllQueue();
-            var ss = Console.Read();
-            SeqStack<double> test = new SeqStack<double>(5);
-            test.EvaluateExpression();
+            //var ss = Console.Read();
+            //SeqStack<double> test = new SeqStack<double>(5);
+            //test.EvaluateExpression();
+            HuffmanTree huffmanTree = new HuffmanTree(4);
+            huffmanTree.Create();
             Console.ReadLine();
         }
 
