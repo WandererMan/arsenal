@@ -63,7 +63,7 @@ namespace TestProject
             //q.ShowAllQueue();
             var ss = Console.Read();
             SeqStack<double> test = new SeqStack<double>(5);
-            test.EvaluateExpression();
+            //test.EvaluateExpression();
             Console.ReadLine();
         }
 
