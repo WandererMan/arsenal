@@ -65,8 +65,16 @@ namespace TestProject
             //var ss = Console.Read();
             //SeqStack<double> test = new SeqStack<double>(5);
             //test.EvaluateExpression();
-            HuffmanTree huffmanTree = new HuffmanTree(4);
-            huffmanTree.Create();
+
+            //Console.WriteLine($"请输入权值个数：");
+            //int weightCount = Convert.ToInt32(Console.ReadLine());
+            //HuffmanTree huffmanTree = new HuffmanTree(weightCount);
+            //huffmanTree.PrintValueCreateTree();
+            HuffmanTree s = new HuffmanTree(1);
+            s.HumffmanEncoding("AABCDEEFGC");
+
+
+
             Console.ReadLine();
         }
 
