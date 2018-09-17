@@ -426,5 +426,73 @@ namespace ListDemo
                 p = p.Next;
             }
         }
+
+        /// <summary>
+        /// 判断是否有环
+        /// </summary>
+        /// <returns></returns>
+        public bool HasCircle()
+        {
+            bool result = false;
+            Node<T> slowNode = Head;//慢指针
+            Node<T> fastNode = Head;//快指针
+            int count = 0;
+            int step = 0;
+
+            while (slowNode.Next != null && fastNode.Next.Next != null)
+            {
+                try
+                {
+                    slowNode = slowNode.Next;//慢指针指向下一个
+                    fastNode = fastNode.Next.Next;//快指针指向下一个节点下一个节点
+                }
+                catch (NullReferenceException)
+                {
+                    result = false;
+                    break;
+                }
+                if (slowNode == fastNode && slowNode != Head && slowNode != Head)
+                {
+                    result = true;
+                    Console.WriteLine($"当前节点的数据是{slowNode.Data}");
+                    count++;
+                }
+
+                if (count == 1)//第一次相遇
+                {
+                    step++;//计步，获取环长
+                }
+                if (count == 2)//第二次相遇
+                {
+                    Console.WriteLine($"环长是{step}");
+                    break;
+                }
+            }
+            GetPoint(step);
+            return result;
+        }
+
+        /// <summary>
+        /// 获取相交点
+        /// </summary>
+        /// <param name="circleLength">环长</param>
+        /// <returns></returns>
+        public Node<T> GetPoint(int circleLength)
+        {
+            int lineLength = GetLength() - circleLength;
+            int num = 1;
+            Node<T> currentNode = Head;
+            while (currentNode.Next != null)
+            {
+                currentNode = currentNode.Next;
+                num++;
+                if (num == lineLength)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine($"环相交点是{currentNode.Data}");
+            return currentNode;
+        }
     }
 }

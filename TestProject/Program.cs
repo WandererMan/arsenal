@@ -71,7 +71,15 @@ namespace TestProject
             //HuffmanTree huffmanTree = new HuffmanTree(weightCount);
             //huffmanTree.PrintValueCreateTree();
             HuffmanTree s = new HuffmanTree(1);
-            s.HumffmanEncoding("AABCDEEFGC");
+            var enCodeResult = s.HumffmanEncoding("AXSWASZSQS");
+            var enCodeDic = enCodeResult.dict;
+            var enCodeStrArry = enCodeResult.sarry;
+            int i = 0;
+            foreach (var item in enCodeDic)
+            {
+                Console.WriteLine($"字符{item.Key}的编码为:{enCodeStrArry[i]}");
+                i++;
+            }
 
 
 

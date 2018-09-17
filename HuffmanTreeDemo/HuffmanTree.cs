@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HuffmanTreeDemo
 {
@@ -32,8 +30,8 @@ namespace HuffmanTreeDemo
         {
             Weight = weight;
             LChild = lchild;
-            RChild = RChild;
-            Parent = Parent;
+            RChild = rchild;
+            Parent = parent;
         }
         public Node()
         {
@@ -94,6 +92,7 @@ namespace HuffmanTreeDemo
             }
             ConstructHuffmanTree();
         }
+
         /// <summary>
         /// 构造哈夫曼树
         /// </summary>
@@ -143,13 +142,22 @@ namespace HuffmanTreeDemo
 
         /// <summary>
         /// 哈夫曼编码
+        /// <para>sarry：字符编码</para>
+        /// <para>dict：字符与权值</para>
         /// </summary>
+        /// <param name="str"></param>
         /// <returns></returns>
-        public string HumffmanEncoding(string str)
+        public (string[] sarry, Dictionary<char, int> dict) HumffmanEncoding(string str)
         {
-            // char[] strArry = str.ToCharArray();
             Dictionary<char, int> dic = new Dictionary<char, int>();
-
+            //dic.Add('A', 32);
+            //dic.Add('B', 12);
+            //dic.Add('C', 7);
+            //dic.Add('D', 18);
+            //dic.Add('E', 3);
+            //dic.Add('F', 5);
+            //dic.Add('G', 26);
+            //dic.Add('I', 8);
             //构造字符与字符对应的权值
             foreach (var item in str)
             {
@@ -174,13 +182,40 @@ namespace HuffmanTreeDemo
             }
             huffmanTree.ConstructHuffmanTree();
 
+            //存放字符编码数组
             string[] huffmanCode = new string[huffmanTree.LeafNum];
+            string code = string.Empty;//编码字符串临时变量
+            int parentIndex = 0;//父节点所在位置
+            int currentNodeIndex = 0;//当前索引所在树中Data数组位置
+
             for (int i = 0; i < huffmanTree.LeafNum; i++)
             {
-                huffmanTree.Data[i].Parent
-            }
-            return null;
+                //初始默认位置为叶子节点的位置
+                currentNodeIndex = i;
+                code = string.Empty; 
+                parentIndex = huffmanTree.Data[i].Parent;
+                //左子树为0右子树为1
+                while (parentIndex != -1)
+                {
+                    //父节点的左子树是否为当前结点的位置
+                    if (huffmanTree[parentIndex].LChild == currentNodeIndex)
+                    {
+                        code += "0";
+                    }
+                    //父节点的右子树是否为当前结点的位置
+                    if (huffmanTree[parentIndex].RChild == currentNodeIndex)
+                    {
+                        code += "1";
+                    }
+                    //当前节点位置更改为当前父节点的位置
+                    currentNodeIndex = parentIndex;
+                    //获取当前节点的父节点
+                    parentIndex = huffmanTree.Data[parentIndex].Parent;
+                }
 
+                huffmanCode[i] = new string(code.ToCharArray().Reverse().ToArray());
+            }
+            return (huffmanCode, dic);
         }
 
 
