@@ -85,10 +85,10 @@ namespace HuffmanTreeDemo
         /// </summary>
         public void Create()
         {
-            int max1;//最大权值数
-            int max2;//次之权值最大数
-            int tmp1;//最大数数组中位置
-            int tmp2;//次大数数组中位置
+            int max1;//最小权值数
+            int max2;//次小权值最大数
+            int tmp1;//最小数数组中位置
+            int tmp2;//次小数数组中位置
 
             //输入N个叶子结点的权值
             for (int i = 0; i < this.LeafNum; i++)
