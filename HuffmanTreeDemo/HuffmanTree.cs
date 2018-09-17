@@ -81,41 +81,47 @@ namespace HuffmanTreeDemo
         }
 
         /// <summary>
-        /// 创建哈夫曼树
+        /// 手动输入权值值创建哈夫曼树
         /// </summary>
-        public void Create()
+        public void PrintValueCreateTree()
         {
-            int max1;//最小权值数
-            int max2;//次小权值最大数
-            int tmp1;//最小数数组中位置
-            int tmp2;//次小数数组中位置
-
             //输入N个叶子结点的权值
             for (int i = 0; i < this.LeafNum; i++)
             {
-                Data[i] = new Node ();
-                Data[i].Weight =Convert.ToInt32( Console.ReadLine());
+                Console.WriteLine($"第{i + 1}个结点的权值:");
+                Data[i] = new Node();
+                Data[i].Weight = Convert.ToInt32(Console.ReadLine());
             }
+            ConstructHuffmanTree();
+        }
+        /// <summary>
+        /// 构造哈夫曼树
+        /// </summary>
+        public void ConstructHuffmanTree()
+        {
+            int min1;//最小权值数
+            int min2;//次小权值数
+            int tmp1;//最小数数组中位置
+            int tmp2;//次小22数数组中位置 
 
             for (int i = 0; i < this.LeafNum - 1; i++)
             {
-                max1 = max2 = Int32.MaxValue;
-               tmp1 = tmp2 = 0;
+                min1 = min2 = Int32.MaxValue;
+                tmp1 = tmp2 = 0;
 
                 ///this.LeafNum+1因为每次数组中都会新添加一个节点
-                for (int j = 0; j < this.LeafNum+1; j++)
+                for (int j = 0; j < this.LeafNum + i; j++)
                 {
-                    if (Data[i].Weight < max1 && Data[i].Parent == -1)
+                    if (Data[j].Weight < min1 && Data[j].Parent == -1)
                     {
-                        max2 = max1;
+                        min2 = min1;
                         tmp2 = tmp1;
                         tmp1 = j;
-                        max1 = Data[j].Weight;
-
+                        min1 = Data[j].Weight;
                     }
-                    else if (Data[i].Weight < max2 && Data[i].Parent == -1)
+                    else if (Data[j].Weight < min2 && Data[j].Parent == -1)
                     {
-                        max2 = Data[j].Weight;
+                        min2 = Data[j].Weight;
                         tmp2 = j;
                     }
                 }
@@ -123,14 +129,58 @@ namespace HuffmanTreeDemo
                 Data[this.LeafNum + i] = new Node();
                 //将最小权值节点的双亲节点设置为当前叶子结点+i
                 Data[tmp1].Parent = this.LeafNum + i;
+                //将次小权值结点的双亲节点设置为当前叶子结点+1
+                Data[tmp2].Parent = this.LeafNum + i;
                 //新结点的权值为最小和次小结点的权值和
                 Data[this.LeafNum + i].Weight = Data[tmp1].Weight + Data[tmp2].Weight;
 
                 //分配新结点的左右孩子
-
                 Data[this.LeafNum + i].LChild = tmp1;
                 Data[this.LeafNum + i].RChild = tmp2;
             }
+        }
+
+
+        /// <summary>
+        /// 哈夫曼编码
+        /// </summary>
+        /// <returns></returns>
+        public string HumffmanEncoding(string str)
+        {
+            // char[] strArry = str.ToCharArray();
+            Dictionary<char, int> dic = new Dictionary<char, int>();
+
+            //构造字符与字符对应的权值
+            foreach (var item in str)
+            {
+                //字典中包含字符，则对应的value+1
+                if (dic.ContainsKey(item))
+                {
+                    dic[item]++;
+                }
+                else
+                {
+                    //将新的字符串添加到字典中
+                    dic.Add(item, 1);
+                }
+            }
+
+            HuffmanTree huffmanTree = new HuffmanTree(dic.Count);
+            int j = 0;
+            foreach (var item in dic)
+            {
+                huffmanTree.Data[j] = new Node(item.Value, -1, -1, -1);
+                j++;
+            }
+            huffmanTree.ConstructHuffmanTree();
+
+            string[] huffmanCode = new string[huffmanTree.LeafNum];
+            for (int i = 0; i < huffmanTree.LeafNum; i++)
+            {
+                huffmanTree.Data[i].Parent
+            }
+            return null;
+
         }
 
 
