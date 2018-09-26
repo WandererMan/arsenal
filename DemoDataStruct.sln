@@ -37,6 +37,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TreeDemo", "TreeDemo\TreeDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HuffmanTreeDemo", "HuffmanTreeDemo\HuffmanTreeDemo.csproj", "{CDBF7D93-08AC-4096-91EF-B2A1E4CDBD75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SocketDemo", "SocketDemo\SocketDemo.csproj", "{27CAB815-8C93-459B-B092-0CCB6B65F70C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Socket", "Socket", "{32F491EB-22D6-44F4-97CC-3BF67BF02567}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -83,6 +87,10 @@ Global
 		{CDBF7D93-08AC-4096-91EF-B2A1E4CDBD75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CDBF7D93-08AC-4096-91EF-B2A1E4CDBD75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CDBF7D93-08AC-4096-91EF-B2A1E4CDBD75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27CAB815-8C93-459B-B092-0CCB6B65F70C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27CAB815-8C93-459B-B092-0CCB6B65F70C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27CAB815-8C93-459B-B092-0CCB6B65F70C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27CAB815-8C93-459B-B092-0CCB6B65F70C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -97,6 +105,7 @@ Global
 		{3A85FEA1-FCAD-485E-A89D-62F24C1E913D} = {D7DB9A97-74B4-4924-B690-13CAF1B8D31A}
 		{04F230BD-0BE1-4933-8E8D-B697087206D0} = {D7DB9A97-74B4-4924-B690-13CAF1B8D31A}
 		{CDBF7D93-08AC-4096-91EF-B2A1E4CDBD75} = {D7DB9A97-74B4-4924-B690-13CAF1B8D31A}
+		{27CAB815-8C93-459B-B092-0CCB6B65F70C} = {32F491EB-22D6-44F4-97CC-3BF67BF02567}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E6855880-AE08-44F7-8739-55D218F3A1D9}

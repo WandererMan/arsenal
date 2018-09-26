@@ -460,6 +460,7 @@ namespace ListDemo
 
                 if (count == 1)//第一次相遇
                 {
+                    //相遇之后step走的长度即为环长
                     step++;//计步，获取环长
                 }
                 if (count == 2)//第二次相遇
@@ -475,7 +476,7 @@ namespace ListDemo
         /// <summary>
         /// 获取相交点
         /// </summary>
-        /// <param name="circleLength">环长</param>
+        /// <param name="circleLength">环长 </param>
         /// <returns></returns>
         public Node<T> GetPoint(int circleLength)
         {
