@@ -52,7 +52,7 @@ namespace SocketDemo
             //sSocket.Close();
             #endregion
 
-            #region 第二次写
+            #region 第二次写同步
             /*//主机IP
             IPEndPoint serverIP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8686);
             Console.WriteLine("请选择连接方式：");
@@ -80,9 +80,32 @@ namespace SocketDemo
 
             #endregion
 
-            #region 第二次使用异步
-            AsynTcpServer tcpServer = new AsynTcpServer();
-            tcpServer.StartListening();
+            #region 第二次使用异步 
+            IPEndPoint serverIP = new IPEndPoint(IPAddress.Parse("127.0.0.1"), 8686);
+            Console.WriteLine("请选择连接方式：");
+            Console.WriteLine("A.Tcp");
+            Console.WriteLine("B.Udp");
+            ConsoleKey key;
+            while (true)
+            {
+                key = Console.ReadKey(true).Key;
+                if (key == ConsoleKey.A)
+                {
+                    AsynTcpServer tcpServer = new AsynTcpServer();
+                    tcpServer.StartListening();
+                }
+                else if (key == ConsoleKey.B)
+                {
+                    AsynUdpServer udpServer = new AsynUdpServer();
+                    udpServer.ServerBind(); 
+                }
+                else
+                {
+                    Console.WriteLine("输入有误,请重新输入：");
+                    continue;
+                }
+                break;
+            }
             #endregion
             Console.Read();
         }
