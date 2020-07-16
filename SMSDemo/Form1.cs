@@ -32,8 +32,8 @@ namespace SMSDemo
         {
             String product = "Dysmsapi";//短信API产品名称（短信产品名固定，无需修改）
             String domain = "dysmsapi.aliyuncs.com";//短信API产品域名（接口地址固定，无需修改）
-            String accessKeyId = "LTAIZ51Lb3oklxVZ";//你的accessKeyId，参考本文档步骤2
-            String accessKeySecret = "RLe0Ng5UNbHNuT3FDYRalcpP4qdcRf";//你的accessKeySecret，参考本文档步骤2
+            String accessKeyId = "";//你的accessKeyId，参考本文档步骤2
+            String accessKeySecret = "";//你的accessKeySecret，参考本文档步骤2
             IClientProfile profile = DefaultProfile.GetProfile("cn-hangzhou", accessKeyId, accessKeySecret);
             //IAcsClient client = new DefaultAcsClient(profile);
             // SingleSendSmsRequest request = new SingleSendSmsRequest();
